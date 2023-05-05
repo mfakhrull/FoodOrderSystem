@@ -54,7 +54,7 @@ public class RestaurantOrderSystem {
             public void actionPerformed(ActionEvent e) {
                 String orderDescription = orderTextField.getText();
                 if (!orderDescription.isEmpty()) {
-                    orderQueue.addOrder(new Order(orderDescription));
+                    orderQueue.enqueue(new Order(orderDescription));
                     orderTextField.setText("");
                     updateOrderList();
                 }
@@ -67,7 +67,7 @@ public class RestaurantOrderSystem {
         peekButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (!orderQueue.isEmpty()) {
-                    JOptionPane.showMessageDialog(frame, "Front Order: " + orderQueue.peekOrder().getDescription());
+                    JOptionPane.showMessageDialog(frame, "Front Order: " + orderQueue.peek().getDescription());
                 } else {
                     JOptionPane.showMessageDialog(frame, "No orders in the queue.");
                 }
@@ -80,7 +80,7 @@ public class RestaurantOrderSystem {
         removeButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (!orderQueue.isEmpty()) {
-                    orderQueue.removeOrder();
+                    orderQueue.dequeue();
                     updateOrderList();
                 } else {
                     JOptionPane.showMessageDialog(frame, "No orders in the queue.");

@@ -18,15 +18,15 @@ public class OrderQueue {
         orderQueue = new LinkedList<>();
     }
 
-    public void addOrder(Order order) {
+    public void enqueue(Order order) {
         orderQueue.add(order);
     }
 
-    public Order peekOrder() {
+    public Order peek() {
         return orderQueue.peek();
     }
 
-    public Order removeOrder() {
+    public Order dequeue() {
         return orderQueue.remove();
     }
 
