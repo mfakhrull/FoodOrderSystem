@@ -27,7 +27,7 @@ public class OrderQueue {
     }
 
     public Order removeOrder() {
-        return orderQueue.poll();
+        return orderQueue.remove();
     }
 
     public boolean isEmpty() {
